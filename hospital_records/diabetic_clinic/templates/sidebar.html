@@ -1,0 +1,10 @@
+<div class="col-sm-2" id ="sidebar">
+    <form action="search" method="POST" id="search">
+        {% csrf_token %}
+        {{ search_form }}
+        <input type="submit" value="Go">
+    </form>
+    <div id="sidebar_gap"></div>
+    <a href="advanced_search" id="advanced_search"> Advanced Search</a>
+    <div id="sidebar_gap"></div>
+</div>

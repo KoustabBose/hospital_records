@@ -1,0 +1,77 @@
+<div class="row" >
+    <div class="tab">
+        <button class="tablinks active" onclick="showform(event,'personal_details')">Personal Details</button>
+        <button class="tablinks" onclick="showform(event,'family_history')">Family History</button>
+        <button class="tablinks" onclick="showform(event,'medical_history')">Medical History</button>
+        <button class="tablinks" onclick="showform(event,'surgical_history')">Surgical History</button>
+        <button class="tablinks" onclick="showform(event,'diabetes_history')">Diabetes History</button>
+    </div>
+</div>
+<div class="row">
+        {% csrf_token %}
+        <div class="tabcontent" id="personal_details" style="display:block;">
+            {% for field in personal_details %}
+                {% for key,value in field.items %}
+                {% if value is True %}
+                <p>{{ key }} : Yes</p>
+            {% elif value is False %}
+                <p>{{ key }} : No</p>
+            {% else %}
+                <p>{{ key }} : {{ value }}</p>
+            {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="tabcontent" id="family_history">
+            {% for field in family_history %}
+                {% for key,value in field.items %}
+                {% if value is True %}
+                <p>{{ key }} : Yes</p>
+            {% elif value is False %}
+                <p>{{ key }} : No</p>
+            {% else %}
+                <p>{{ key }} : {{ value }}</p>
+            {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="tabcontent" id="medical_history">
+           {% for field in medical_history %}
+                    {% for key,value in field.items %}
+                    {% if value is True %}
+                    <p>{{ key }} : Yes</p>
+                {% elif value is False %}
+                    <p>{{ key }} : No</p>
+                {% else %}
+                    <p>{{ key }} : {{ value }}</p>
+                {% endif %}
+                    {% endfor %}
+                {% endfor %}
+        </div>
+        <div class="tabcontent" id="surgical_history">
+            {% for field in surgical_history %}
+                {% for key,value in field.items %}
+                {% if value is True %}
+                <p>{{ key }} : Yes</p>
+            {% elif value is False %}
+                <p>{{ key }} : No</p>
+            {% else %}
+                <p>{{ key }} : {{ value }}</p>
+            {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="tabcontent" id="diabetes_history" onclick="enable_submit()">
+            {% for field in diabetes_history %}
+                {% for key,value in field.items %}
+                {% if value is True %}
+                <p>{{ key }} : Yes</p>
+            {% elif value is False %}
+                <p>{{ key }} : No</p>
+            {% else %}
+                <p>{{ key }} : {{ value }}</p>
+            {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+</div>

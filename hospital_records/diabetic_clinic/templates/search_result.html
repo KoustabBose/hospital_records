@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block form_header %}
+    <span> Name : {{ name }}</span>
+    <span> Sex : {{ sex }}</span>
+    <span>Age : {{ age }}</span>
+{% endblock %}
+{% block form_space %}
+<div style="padding-top: 10px;padding-bottom: 10px;">
+<a href="fetch_history?patient_id={{ history.patient_id }}">Patient History</a>
+</div>
+<div style="padding-top: 10px;padding-bottom: 10px;">
+    <div>Reports:</div>
+    {% for date in reports.date %}
+    <a href="fetch_report?patient_id={{ reports.patient_id }}&date={{ date|date:'Y-m-d' }}"> {{ date }}</a>
+    {% endfor %}
+</div>
+<div style="padding-top: 10px;padding-bottom: 10px;">
+    <div>Treatments:</div>
+    {% for date in treatment.date %}
+    <a href="fetch_treatment?patient_id={{ treatment.patient_id }}&date={{ date|date:'Y-m-d' }}">{{ date }}</a>
+    {% endfor %}
+</div>
+
+<div style="padding-top: 10px;padding-bottom: 10px;">
+    <a href="insertreports?patient_id={{ patient_id }}">Add Report</a>
+</div>
+<div style="padding-top: 10px;padding-bottom: 10px;">
+    <a href="inserttreatment?patient_id={{ patient_id }}">Add Treatment</a>
+</div>
+{% endblock %}

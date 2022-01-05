@@ -1,0 +1,32 @@
+<div class="row" >
+    <div class="tab">
+        <button class="tablinks active" onclick="showform(event,'diagnosis')">Diagnosis</button>
+        <button class="tablinks" onclick="showform(event,'treat_diabetes')">Treatment Diabetes</button>
+        <button class="tablinks" onclick="showform(event,'treat_HT')">Treatment Hypertension</button>
+        <button class="tablinks" onclick="showform(event,'treat_others')">Other Treatment</button>
+    </div>
+</div>
+<div class="row">
+    <form action="inserttreatment" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="patient_id" value="{{ patient_id }}">
+        <div>
+            <span style="float: right;font-size: 15px;">
+                {{ transaction_details.as_p }}
+            </span>
+        </div>
+        <div class="tabcontent" id="diagnosis" style="display:block;">
+            {{ diagnosis.as_p }}
+        </div>
+        <div class="tabcontent" id="treat_diabetes">
+            {{ treat_diabetes.as_p }}
+        </div>
+        <div class="tabcontent" id="treat_HT">
+            {{ treat_HT.as_p }}
+        </div>
+        <div class="tabcontent" id="treat_others" onclick="enable_submit()">
+            {{ treat_others.as_p }}
+        </div>
+        <input type="submit" value="Submit" id="submit_button" disabled>
+    </form>
+</div>

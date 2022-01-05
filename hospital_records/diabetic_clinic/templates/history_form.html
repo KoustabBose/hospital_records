@@ -1,0 +1,43 @@
+<div class="row" >
+    <div class="tab">
+        <button class="tablinks active" onclick="showform(event,'personal_details')">Personal Details</button>
+        <button class="tablinks" onclick="showform(event,'family_history')">Family History</button>
+        <button class="tablinks" onclick="showform(event,'medical_history')">Medical History</button>
+        <button class="tablinks" onclick="showform(event,'surgical_history')">Surgical History</button>
+        <button class="tablinks" onclick="showform(event,'diabetes_history')">Diabetes History</button>
+    </div>
+</div>
+<div class="row">
+    <form action="insertnew" method="POST">
+        {% csrf_token %}
+        <div>
+            <span style="float: right;font-size: 15px;">
+                {{ transaction_details.as_p }}
+            </span>
+        </div>
+        <div class="tabcontent" id="personal_details" style="display:block;">
+            {{ personal_details.as_p }}
+        </div>
+        <div class="tabcontent" id="family_history">
+            {{ family_history.as_p }}
+        </div>
+        <div class="tabcontent" id="medical_history">
+            <div id="first_medical_history_form">
+                {{ medical_history.as_p }}
+            </div>
+            <div id="empty_medical_form" style="display:none">
+                {{ medical_history.empty_form.as_p }}
+            </div>
+            <div>
+                <input type="button" value="Add More" id="add_more_medical_history" onclick='add_medical_history()'>
+            </div>
+        </div>
+        <div class="tabcontent" id="surgical_history">
+            {{ surgical_history.as_p }}
+        </div>
+        <div class="tabcontent" id="diabetes_history" onclick="enable_submit()">
+            {{ diabetes_history.as_p }}
+        </div>
+        <input type="submit" value="Submit" id="submit_button" disabled>
+    </form>
+</div>

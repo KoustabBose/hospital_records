@@ -1,0 +1,53 @@
+<div class="row" >
+    <div class="tab">
+        <button class="tablinks active" onclick="showform(event,'physical_exam')">Physical Examinations</button>
+        <button class="tablinks" onclick="showform(event,'blood_sugar')">Blood Sugar Investigation</button>
+        <button class="tablinks" onclick="showform(event,'renal')">Renal Investigations</button>
+        <button class="tablinks" onclick="showform(event,'blood_lipid')">Lipid Profile</button>
+        <button class="tablinks" onclick="showform(event,'liver_func')">Liver Functions</button>
+        <button class="tablinks" onclick="showform(event,'haemogram')">Haemogram</button>
+        <button class="tablinks" onclick="showform(event,'blood_others')">Other Blood Reports</button>
+        <button class="tablinks" onclick="showform(event,'urine')">Urine Examination</button>
+        <button class="tablinks" onclick="showform(event,'others')">Other Investigations</button>
+    </div>
+</div>
+<div class="row">
+    <form action="insertreports" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="patient_id" value="{{ patient_id }}">
+        <div>
+            <span style="float: right;font-size: 15px;">
+                {{ transaction_details.as_p }}
+            </span>
+        </div>
+
+        <div class="tabcontent" id="physical_exam" onchange="calculate_bmi()" style="display: block;">
+            {{ physical_exam.as_p }}
+        </div>
+        <div class="tabcontent" id="blood_sugar" onclick="calculate_EGDR()">
+            {{ blood_sugar.as_p }}
+        </div>
+        <div class="tabcontent" id="renal" onclick="calculate_EGFR()">
+            {{ renal.as_p }}
+        </div>
+        <div class="tabcontent" id="blood_lipid" onclick="calculate_ascvd()">
+            {{ blood_lipid.as_p }}
+        </div>
+        <div class="tabcontent" id="liver_func">
+            {{ liver_func.as_p }}
+        </div>
+        <div class="tabcontent" id="haemogram">
+            {{ haemogram.as_p }}
+        </div>
+        <div class="tabcontent" id="blood_others">
+            {{ blood_others.as_p }}
+        </div>
+        <div class="tabcontent" id="urine">
+            {{ urine.as_p }}
+        </div>
+        <div class="tabcontent" id="others" onclick="enable_submit()">
+            {{ others.as_p }}
+        </div>
+        <input type="submit" value="Submit" id="submit_button" disabled>
+    </form>
+</div>

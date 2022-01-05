@@ -1,0 +1,91 @@
+#banner_text {
+    font-size :xx-large;
+    font-style: normal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: -webkit-sticky;
+    padding-left: 5%;
+    padding-top: 1%;
+    background-color: rgb(240, 136, 18);
+}
+
+#banner {
+    border-bottom: 2px solid rgb(245, 199, 114);
+}
+
+#sidebar {
+    background-color:rgb(250, 184, 60);
+}
+
+#search_text {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    padding-top: 1%;
+}
+
+#search {
+    padding-left : 3%;
+}
+
+#form_header {
+    background-color:  rgb(253, 253, 99);
+    font-size: 20px;
+    font-style: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: -webkit-sticky;
+    padding-left: 20%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.tab {
+    overflow : hidden;
+    border: 2px solid yellow;
+    background-color: rgb(252, 231, 115); 
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border-top: none;
+    border-bottom: None;
+    border-left: none;
+    border-right: 2px solid yellow;
+    outline: none;
+    cursor: pointer;
+    padding-right: 5px;
+    transition: 0.3s;
+    font-size: 15px;
+  }
+
+  .tab button:hover {
+    background-color: rgb(255, 224, 51);
+  }
+
+  .tab button.active {
+    background-color: rgb(255, 219, 14);
+  }
+
+  .tabcontent {
+    display: none;
+    padding-left: 20px;
+    background-color: rgb(235, 225, 225);
+  }
+
+  textarea {
+      width : 40%;
+      height : 100px;
+      resize: both;
+  }
+
+  #sidebar_gap {
+    padding-block: 10px;
+  }
+
+  #advanced_search {
+    padding-left: 20%;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: darkmagenta;
+  }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.form_header {
+  width : 100%;
+  padding: 5px 0;
+  /*background-color: lightblue;*/
+}
+.form_container {
+    width : 90%;
+    background-color: lightblue;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 5px 5px 0;
+  padding : 5px;
+  float: right;
+  background-color: lightblue;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.form_headline {
+    float:left;
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    color : red;
+    font-size: large;
+}
+
+.arrow_container {
+    padding-right: 1%;
+}
+.empty {
+    width : 100%;
+    height : 5%;
+    background-color : white;
+}
+#form1 {
+    display: none;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+</style>
+<script>
+    function form1_expand(id_btn,id_form){
+        var x = document.getElementById(id_btn);
+        var f = document.getElementById(id_form)
+        if (x.className === "arrow right") {
+            x.className = "arrow down";
+            f.style.display = "Block";
+        }
+        else {
+            x.className = "arrow right";
+            f.style.display = "None";
+        }
+    }
+</script>
+</head>
+<body>
+<div class="form_container">
+    <div class="form_header">
+        <span class = "form_headline">Patient Details </span>
+        <span class="arrow_container"></span><button id="form1_btn" class="arrow right" onclick="form1_expand('form1_btn','form1')"
+        ></button></span>
+    </div>
+    <div id="form1">
+        <form  action="/action_page.php">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="John"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Doe"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+<br/>
+<div class="form_container"><div class="form_header"> <span class="arrow_container"><button id="form2_btn" class="arrow right" onclick="form2_expand()"></button></span></div></div>
+
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block form_header %}
+    <span>Advanced Search</span>
+{% endblock %}
+{% block form_space %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for field in advanced_search %}
+            {% if field.name == "search" %}
+                <span onchange="ad_search_val(event)">{{ field.label_tag }} {{ field }}</span>
+            {% else %}
+                <span id="value{{ forloop.counter0 }}" style="display:none">{{ field.label_tag }} {{ field }}</span>
+            {% endif %}
+        {% endfor %}
+        <input type="submit" value="Submit" id="submit_button">
+    </form>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% block form_header %}
+<span>Name : <i name="name">{{ name }}</i></span>
+<span>Age : <i name="age">{{ age }}</i></span>
+<span>Sex : <i name="sex">{{ sex }}</i></span>
+{% endblock %}
+{% block form_space %}
+    {% include 'treatment_form.html' %}
+{% endblock %}

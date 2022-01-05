@@ -1,0 +1,27 @@
+<div class="col-sm-2" id ="sidebar">
+    <form action="search" method="POST" id="search" class="col-sm-12">
+        {% csrf_token %}
+        {% for field in search_form %}
+            {% if field.field.widget.input_type == "text" %}
+                <div class="form-group" id>
+                    {{ field.label_tag }}
+                    <input type="{{ field.field.widget.input_type }}" class="form-control">
+                </div>
+            {% endif %}
+            {% if field.field.widget.input_type == "radio" %}
+                <div class="form-group">
+                    {% for opt in field %}
+                        <span class="myradio" >
+                            {{ opt }}
+                        </span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <input type="submit" value="Go">
+    </form>
+    {% block search_result %}
+    {% endblock %}
+    {% block add_prescription %}
+    {% endblock %}
+</div>

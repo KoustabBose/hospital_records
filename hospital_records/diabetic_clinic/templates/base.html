@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+        <script src="/static/jquery/jquery.min.js"></script>
+        <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/utils.js"></script>
+        <link rel="stylesheet" href="/static/stylesheet.css">
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    </head>
+    <body>
+        <div id="full_content">
+            <div id="banner" class="row">
+                <span id="logo" class="col-sm-2">
+                    <a href="/diabetic_clinic">
+                        <img src="/static/images/logo.png" alt="hospital logo"/>
+                    </a>
+                </span>
+                <span id="banner_text" class="col-sm-10"> Diabetic Clinic - Patient Records</span>
+           </div>
+            <div id="content" class="row">
+                {% block sidebar %}
+                {% include "sidebar.html" %}
+                {% endblock %}
+                
+                <div class="col-sm-10" id ="form_space">
+                    <div class="row" id="form_header">
+                        {% block form_header %} form_header {% endblock %}
+                    </div>
+                    <div id="form_space">
+                        {% block form_space %} form space {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

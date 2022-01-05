@@ -1,0 +1,49 @@
+<div class="row" >
+    <div class="tab">
+        <button class="tablinks" onclick="showform(event,'treat_diabetes')">Treatment Diabetes</button>
+        <button class="tablinks" onclick="showform(event,'treat_HT')">Treatment Hypertension</button>
+        <button class="tablinks" onclick="showform(event,'treat_others')">Other Treatment</button>
+    </div>
+</div>
+<div class="row">
+    {% csrf_token %}
+    <div class="tabcontent" id="treat_diabetes" style="display:block;">
+        {% for field in treat_diabetes %}
+            {% for key,value in field.items %}
+            {% if value is True %}
+            <p>{{ key }} : Yes</p>
+        {% elif value is False %}
+            <p>{{ key }} : No</p>
+        {% else %}
+            <p>{{ key }} : {{ value }}</p>
+        {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="tabcontent" id="treat_HT">
+        {% for field in treat_HT %}
+            {% for key,value in field.items %}
+            {% if value is True %}
+            <p>{{ key }} : Yes</p>
+        {% elif value is False %}
+            <p>{{ key }} : No</p>
+        {% else %}
+            <p>{{ key }} : {{ value }}</p>
+        {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="tabcontent" id="treat_others">
+       {% for field in treat_others %}
+                {% for key,value in field.items %}
+                {% if value is True %}
+                <p>{{ key }} : Yes</p>
+            {% elif value is False %}
+                <p>{{ key }} : No</p>
+            {% else %}
+                <p>{{ key }} : {{ value }}</p>
+            {% endif %}
+                {% endfor %}
+            {% endfor %}
+    </div>
+</div>
